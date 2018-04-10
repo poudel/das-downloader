@@ -29,3 +29,11 @@ Then just run
 ```bash
 python das.py
 ```
+
+You'll see something like below
+
+```bash
+python das.py 
+Starting: 1 - Routing Simple Requests - A simple router for static URLs.
+30%|████████████▍                             | 5709824/19322296 [01:13<01:13, 186251.27it/s]
+```
