@@ -43,7 +43,7 @@ def get_videos():
             duration = row.find(".duration", first=True).text
             print("Starting: {} - {} - {}".format(number, title, subtitle))
 
-            filename = "-".join(title.split(" ")).lower()
+            filename = title.replace(" ", "-").replace("/", "-").lower()
             file_path = os.path.join(season_directory, filename)
 
             meta_file = "{}.json".format(file_path)
@@ -67,12 +67,16 @@ def get_videos():
 
             part_filename = "{}.part".format(local_filename)
 
-            pbar = tqdm(total=int(total_length))
+            chunk_size = 1024 * 256
+
+            total_size_mb = int(total_length) / (1024 * 1024)
+
+            pbar = tqdm(total=total_size_mb)
 
             with open(part_filename, 'wb') as f:
-                for chunk in fr.iter_content(chunk_size=1024):
+                for chunk in fr.iter_content(chunk_size=chunk_size):
                     if chunk:
-                        pbar.update(1024)
+                        pbar.update(0.25)
                         f.write(chunk)
 
             print("Moving part file..")
