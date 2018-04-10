@@ -1,7 +1,7 @@
 # Destroy all software downloader
 
 Destroy all software screencasts are free for a while
-[https://news.ycombinator.com/item?id=16770655](see HN entry).
+[see HN entry](https://news.ycombinator.com/item?id=16770655).
 
 That is why this does not implement any auth flow yet, though it won't be that hard.
 
